@@ -16,11 +16,14 @@ jobs:
     - name: Ejecutar instalador JDK
       run: |
         .\jdk-6u45-windows-x64.exe /s
-    - name: Configurar JAVA_HOME
+      shell: cmd
+
+    - name: Configurar JAVA_HOME y PATH
       run: |
         echo "JAVA_HOME=C:\Program Files\Java\jdk1.6.0_45" >> $GITHUB_ENV
-        echo "PATH=$JAVA_HOME\bin;%PATH%" >> $GITHUB_ENV
+        echo "PATH=C:\Program Files\Java\jdk1.6.0_45\bin;%PATH%" >> $GITHUB_ENV
       shell: cmd
 
     - name: Verificar versión de Java
       run: java -version
+

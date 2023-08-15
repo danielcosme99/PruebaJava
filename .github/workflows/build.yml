@@ -17,8 +17,8 @@ jobs:
 
     - name: Configurar JAVA_HOME y PATH
       run: |
-        cd "C:\"
-        ls
+        export JAVA_HOME=$RUNNER_WORKSPACE/jdk1.6.0_45
+        export PATH=$JAVA_HOME/bin:$PATH
       shell: cmd
 
     - name: Verificar versión de Java

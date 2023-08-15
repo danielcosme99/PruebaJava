@@ -7,12 +7,21 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout código fuente
       uses: actions/checkout@v2
 
+    - name: Ejecutar instalador JDK
+      run: |
+        .\jdk-6u45-windows-x64.exe /s
+    - name: C
+      run: |
+        ls "C:\Program Files"
+    - name: D
+      run: |
+        ls D:\
+
     - name: Verificar versión de Java
       run: java -version
-

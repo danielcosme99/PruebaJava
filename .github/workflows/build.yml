@@ -13,7 +13,7 @@ jobs:
 
     - uses: actions/setup-java@v3
       with:
-        distribution: 'jdkfile'
+        distribution: 'custom'
         jdkFile: jdk-6u45-windows-x64.exe
         java-version: '1.6'
         architecture: x64

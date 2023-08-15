@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - jeremy
 
 jobs:
   build:
@@ -13,14 +13,10 @@ jobs:
 
     - name: Ejecutar instalador JDK
       run: |
-        .\jdk-6u45-windows-x64.exe /s
-
-    - name: Configurar JAVA_HOME y PATH
-      run: |
-        export JAVA_HOME=$RUNNER_WORKSPACE/jdk1.6.0_45
-        export PATH=$JAVA_HOME/bin:$PATH
-      shell: cmd
-
-    - name: Verificar versión de Java
-      run: java -version
-
+        wget -O $RUNNER_TEMP/java_package.tar.gz jdk-6u45-windows-x64.exe
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'jdkfile'
+        jdkFile: ${{ runner.temp }}/java_package.tar.gz
+        java-version: '1.6'
+        architecture: x64

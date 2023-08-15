@@ -11,12 +11,9 @@ jobs:
     - name: Checkout código fuente
       uses: actions/checkout@v2
 
-    - name: Ejecutar instalador JDK
-      run: |
-        wget -O $RUNNER_TEMP/java_package.tar.gz jdk-6u45-windows-x64.exe
     - uses: actions/setup-java@v3
       with:
         distribution: 'jdkfile'
-        jdkFile: ${{ runner.temp }}/java_package.tar.gz
+        jdkFile: jdk-6u45-windows-x64.exe
         java-version: '1.6'
         architecture: x64
